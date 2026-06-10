@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Przymierze terapeutyczne — Zasady współpracy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600&family=Lora:wght@400;500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAFAF8;
+      --paper: #F7F4EF;
+      --text: #111111;
+      --navy: #121827;
+      --terracotta: #A75E48;
+      --sage: #9C9E83;
+      --sand: #D7C0A1;
+      --blush: #DCBBAE;
+    }
+
+    @page { size: A4; margin: 0; }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; padding: 0; background: #ece8df; color: var(--text); }
+
+    body {
+      font-family: "Lora", Georgia, serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      height: 297mm;
+      page-break-after: always;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+      background: var(--bg);
+    }
+
+    .content { position: absolute; left: 18mm; right: 18mm; top: 29mm; bottom: 22mm; z-index: 2; }
+
+    .page-header {
+      position: absolute;
+      top: 10.5mm;
+      left: 15mm;
+      right: 15mm;
+      height: 14mm;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      z-index: 5;
+    }
+
+    .logo-wrap { width: 43mm; height: 13mm; position: relative; display: flex; align-items: center; }
+    .logo-wrap img { max-width: 43mm; max-height: 13mm; display: block; object-fit: contain; }
+    .logo-fallback { position: absolute; inset: 0; z-index: -1; color: var(--navy); }
+    .logo-fallback strong { display: block; font-family: "Cormorant Garamond", serif; font-size: 13pt; line-height: .88; font-weight: 600; letter-spacing: .02em; }
+    .logo-fallback span { display: block; margin-top: 1.2mm; font-family: "Montserrat", sans-serif; font-size: 5.2pt; letter-spacing: .12em; text-transform: uppercase; }
+
+    .header-meta { text-align: right; color: var(--navy); font-family: "Montserrat", sans-serif; font-size: 6.6pt; letter-spacing: .08em; text-transform: uppercase; line-height: 1.4; }
+    .header-meta .page-count { color: var(--terracotta); font-weight: 600; }
+    .header-meta .mini-signature { display: block; margin-top: 1mm; font-family: "Allura", cursive; font-size: 14pt; letter-spacing: 0; text-transform: none; color: var(--navy); }
+
+    .page-footer { position: absolute; left: 0; right: 0; bottom: 8mm; display: flex; flex-direction: column; align-items: center; gap: 1.6mm; z-index: 5; }
+    .footer-number { font-family: "Montserrat", sans-serif; color: var(--navy); font-size: 7pt; letter-spacing: .18em; }
+    .wave { width: 22mm; height: 4mm; }
+    .wave path { fill: none; stroke: var(--terracotta); stroke-width: 1.4; stroke-linecap: round; opacity: .82; }
+
+    .corner-circles { position: absolute; right: -29mm; bottom: -25mm; width: 82mm; height: 76mm; pointer-events: none; z-index: 1; }
+    .corner-circles span { position: absolute; border-radius: 50%; display: block; }
+    .corner-circles .c1 { width: 55mm; height: 55mm; right: 16mm; bottom: 0; background: var(--sage); opacity: .25; }
+    .corner-circles .c2 { width: 42mm; height: 42mm; right: 0; bottom: 28mm; background: var(--sand); opacity: .28; }
+    .corner-circles .c3 { width: 34mm; height: 34mm; right: 43mm; bottom: 23mm; background: var(--blush); opacity: .30; }
+
+    h1, h2, h3 { font-family: "Cormorant Garamond", serif; color: var(--navy); margin: 0; font-weight: 500; }
+    h1 { font-size: 43pt; line-height: .9; letter-spacing: -.02em; text-align: center; }
+    .subtitle { font-family: "Montserrat", sans-serif; text-align: center; text-transform: uppercase; letter-spacing: .19em; color: var(--terracotta); font-size: 8.2pt; margin-top: 4mm; }
+    .signature { font-family: "Allura", cursive; color: var(--navy); font-size: 28pt; line-height: 1; text-align: center; margin-top: 3mm; }
+
+    .section-title { display: flex; align-items: baseline; gap: 2mm; margin-bottom: 2.6mm; }
+    .section-title .num { font-family: "Cormorant Garamond", serif; color: var(--terracotta); font-size: 20pt; line-height: 1; font-weight: 600; }
+    .section-title h2 { font-size: 19pt; line-height: .95; }
+    .section-title.small h2 { font-size: 16pt; }
+    .section-title.small .num { font-size: 17pt; }
+
+    p { margin: 0 0 2mm; font-size: 8.7pt; line-height: 1.42; }
+    .small-copy p, p.small-copy, .small-copy li { font-size: 7.45pt; line-height: 1.34; }
+    .micro-copy p, .micro-copy li { font-size: 6.45pt; line-height: 1.25; }
+    ul { margin: 1.5mm 0 0; padding: 0; list-style: none; }
+    li { position: relative; padding-left: 3.6mm; margin-bottom: 1mm; font-size: 8.05pt; line-height: 1.32; }
+    li::before { content: ""; position: absolute; left: 0; top: .54em; width: 1.3mm; height: 1.3mm; border-radius: 50%; background: var(--terracotta); opacity: .88; }
+
+    .soft-panel {
+      background: rgba(247, 244, 239, .92);
+      border: .35mm solid rgba(167, 94, 72, .28);
+      border-radius: 12mm 9mm 13mm 8mm / 8mm 13mm 9mm 12mm;
+      box-shadow: 0 2mm 8mm rgba(18, 24, 39, .035);
+    }
+    .outlined-panel { border: .35mm solid rgba(18,24,39,.16); border-radius: 10mm 14mm 9mm 12mm / 12mm 8mm 13mm 9mm; background: rgba(250,250,248,.7); }
+    .asset-frame { position: relative; overflow: hidden; border: .35mm solid rgba(18,24,39,.12); background: rgba(247,244,239,.75); border-radius: 14mm 10mm 13mm 9mm / 11mm 14mm 10mm 13mm; }
+    .asset-frame img { width: 100%; height: 100%; object-fit: contain; display: block; opacity: .98; }
+    .asset-frame::after { content: attr(data-placeholder); position: absolute; inset: auto 4mm 3mm 4mm; font-family: "Montserrat", sans-serif; font-size: 5.6pt; letter-spacing: .08em; text-transform: uppercase; color: rgba(18,24,39,.38); text-align: center; }
+    .asset-frame::before { content: ""; position: absolute; left: 12%; right: 12%; top: 50%; height: .35mm; background: rgba(167,94,72,.28); transform: rotate(-2deg); box-shadow: 0 -12mm 0 rgba(156,158,131,.18), 0 12mm 0 rgba(215,192,161,.22); }
+
+    .title-wave { margin: 3mm auto 0; display: block; width: 32mm; height: 5mm; }
+    .kicker { font-family: "Montserrat", sans-serif; color: var(--terracotta); letter-spacing: .16em; text-transform: uppercase; font-size: 6.4pt; font-weight: 600; }
+    .emphasis { color: var(--terracotta); font-family: "Cormorant Garamond", serif; font-size: 20pt; font-weight: 600; white-space: nowrap; }
+    .capsule { display: inline-flex; align-items: center; justify-content: center; border: .35mm solid rgba(167,94,72,.55); color: var(--terracotta); border-radius: 99mm; padding: 1.4mm 4mm; font-family: "Montserrat", sans-serif; font-size: 7pt; letter-spacing: .08em; text-transform: uppercase; font-weight: 600; background: rgba(250,250,248,.78); }
+
+    /* Page 1 */
+    .page-1 .content { top: 28mm; }
+    .hero { width: 151mm; margin: 0 auto; }
+    .hero-art { width: 126mm; height: 47mm; margin: 5mm auto 0; }
+    .intro-panel { padding: 5mm 8mm 4.2mm; margin-top: 4.5mm; }
+    .intention-grid { display: grid; grid-template-columns: 67mm 1fr; gap: 7mm; margin-top: 5.2mm; }
+    .list-card { padding: 5mm 6mm; border-radius: 9mm 13mm 8mm 12mm / 12mm 8mm 13mm 9mm; background: rgba(247,244,239,.55); border: .3mm solid rgba(156,158,131,.28); }
+    .closing-note { margin-top: 5mm; padding: 3.5mm 6mm 3mm; border-left: .55mm solid rgba(167,94,72,.5); }
+
+    /* Page 2 */
+    .page-2 .main-panel { position: absolute; left: 0; right: 0; top: 0; height: 164mm; padding: 9mm 9mm; display: grid; grid-template-columns: 91mm 1fr; gap: 8mm; }
+    .page-2 .session-art { height: 94mm; margin-top: 14mm; }
+    .service-block { position: absolute; left: 0; right: 0; bottom: 10mm; min-height: 79mm; padding: 8mm 10mm 7mm; border-radius: 16mm 10mm 14mm 9mm / 10mm 15mm 9mm 14mm; }
+    .service-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin: 5mm 0; }
+    .detail { min-height: 22mm; padding: 3.5mm; text-align: center; border-radius: 8mm 10mm 7mm 9mm / 9mm 7mm 10mm 8mm; background: rgba(250,250,248,.65); border: .3mm solid rgba(167,94,72,.24); }
+    .detail span { display: block; font-family: "Montserrat", sans-serif; color: var(--navy); text-transform: uppercase; letter-spacing: .12em; font-size: 5.6pt; margin-bottom: 1.3mm; }
+
+    /* Page 3 */
+    .page-3 .content { top: 29mm; bottom: 19mm; }
+    .p3-top { display: grid; grid-template-columns: 98mm 1fr; gap: 7mm; height: 62mm; }
+    .station-art { height: 58mm; }
+    .p3-mid { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-top: 4mm; }
+    .p3-mid .soft-panel { padding: 5mm; min-height: 78mm; }
+    .medallion { float: right; width: 26mm; height: 26mm; margin: 0 0 2mm 3mm; border-radius: 50%; border: .35mm solid rgba(167,94,72,.6); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--terracotta); background: rgba(250,250,248,.85); font-family: "Cormorant Garamond", serif; font-size: 21pt; line-height: .78; }
+    .medallion small { margin-top: 1.6mm; font-family: "Montserrat", sans-serif; font-size: 5.5pt; letter-spacing: .12em; text-transform: uppercase; }
+    .process-strip { margin-top: 4mm; padding: 4.2mm 5mm; display: grid; grid-template-columns: 29mm 1fr 1fr 1fr; gap: 3mm; align-items: center; }
+    .process-strip p { font-size: 6.15pt; line-height: 1.22; margin: 0; }
+    .process-strip .label { font-family: "Cormorant Garamond", serif; color: var(--navy); font-size: 15pt; line-height: .95; }
+    .confidentiality { margin-top: 4mm; padding: 5mm 6mm; }
+    .confidentiality .columns { column-count: 2; column-gap: 6mm; }
+
+    /* Page 4 */
+    .page-4 .content { top: 28mm; bottom: 20mm; }
+    .p4-grid-top { display: grid; grid-template-columns: 100mm 1fr; gap: 5mm; }
+    .p4-grid-top .soft-panel { padding: 4.5mm 5mm; }
+    .chair-note { padding: 4.5mm; min-height: 67mm; }
+    .mini-art { height: 31mm; margin-bottom: 3mm; }
+    .wide-responsibility { margin-top: 4mm; padding: 4.5mm 5mm; display: grid; grid-template-columns: 1fr 43mm; gap: 5mm; align-items: start; }
+    .callout { padding: 4mm; border-radius: 8mm 11mm 9mm 10mm / 10mm 8mm 11mm 9mm; background: rgba(220,187,174,.22); border: .3mm solid rgba(167,94,72,.22); }
+    .cooperation { margin-top: 4mm; padding: 4.5mm 6mm; }
+    .two-col { margin-top: 4mm; display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+    .two-col .outlined-panel { padding: 4mm 4.5mm; }
+    .contact-panel { margin-top: 4mm; padding: 4.5mm 5mm; display: grid; grid-template-columns: 1fr 52mm; gap: 5mm; align-items: center; }
+    .phone-pill { justify-self: center; border: .35mm solid var(--terracotta); border-radius: 99mm; padding: 3mm 5.5mm; font-family: "Cormorant Garamond", serif; color: var(--terracotta); font-size: 19pt; white-space: nowrap; background: rgba(250,250,248,.82); }
+
+    /* Page 5 */
+    .page-5 .content { top: 29mm; bottom: 20mm; }
+    .p5-top { display: grid; grid-template-columns: 63mm 1fr; gap: 5mm; }
+    .p5-top .soft-panel, .p5-mid .soft-panel { padding: 4.7mm 5.2mm; }
+    .p5-mid { margin-top: 4mm; display: grid; grid-template-columns: 1fr 60mm; gap: 5mm; }
+    .ticket { position: absolute; left: 18mm; right: 18mm; bottom: 25mm; height: 82mm; background: var(--paper); border: .35mm solid rgba(167,94,72,.5); border-radius: 10mm; box-shadow: 0 3mm 10mm rgba(18,24,39,.08); overflow: hidden; z-index: 3; }
+    .ticket::before, .ticket::after { content: ""; position: absolute; top: 33mm; width: 13mm; height: 13mm; border-radius: 50%; background: var(--bg); border: .35mm solid rgba(167,94,72,.35); z-index: 3; }
+    .ticket::before { left: -7mm; } .ticket::after { right: -7mm; }
+    .ticket-inner { position: absolute; inset: 6mm; display: grid; grid-template-columns: 1fr 46mm; gap: 7mm; }
+    .ticket-main { padding-right: 6mm; border-right: .35mm dashed rgba(167,94,72,.45); }
+    .ticket h2 { font-size: 31pt; line-height: .9; }
+    .ticket .route { margin-top: 1.5mm; color: var(--terracotta); font-family: "Montserrat", sans-serif; letter-spacing: .18em; font-size: 7pt; text-transform: uppercase; }
+    .ticket .warm { margin-top: 5mm; font-size: 10pt; line-height: 1.35; }
+    .ticket-fields { margin-top: 4mm; display: grid; gap: 2.1mm; font-size: 7.2pt; line-height: 1.22; }
+    .ticket-signature { position: absolute; left: 60mm; top: 21mm; transform: rotate(-5deg); font-family: "Allura", cursive; font-size: 30pt; color: rgba(18,24,39,.74); }
+    .ticket-side { position: relative; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; }
+    .stamp-placeholder { width: 34mm; height: 34mm; border: .55mm solid rgba(167,94,72,.76); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--terracotta); font-family: "Montserrat", sans-serif; letter-spacing: .09em; text-transform: uppercase; font-size: 5pt; line-height: 1.25; transform: rotate(-8deg); background: rgba(250,250,248,.4); }
+    .stamp-placeholder img { position: absolute; inset: -1mm; width: 36mm; height: 36mm; object-fit: contain; }
+    .track-mark { width: 31mm; height: 10mm; border-top: .35mm solid rgba(18,24,39,.45); border-bottom: .35mm solid rgba(18,24,39,.45); position: relative; opacity: .7; }
+    .track-mark::before { content: ""; position: absolute; inset: 1.8mm 0; background: repeating-linear-gradient(90deg, rgba(18,24,39,.45) 0 1mm, transparent 1mm 4mm); }
+
+    @media print {
+      html, body { width: 210mm; background: var(--bg); margin: 0; }
+      .page { margin: 0; page-break-after: always; box-shadow: none; }
+      .page:last-child { page-break-after: auto; }
+    }
+  </style>
+</head>
+<body>
+  <section class="page page-1">
+    <header class="page-header">
+      <div class="logo-wrap"><img src="/assets/logo.svg" alt="Stacja Terapia — Gabinet Psychoterapii"><div class="logo-fallback"><strong>Stacja<br>Terapia</strong><span>Gabinet Psychoterapii</span></div></div>
+      <div class="header-meta">Zasady współpracy | <span class="page-count">Strona 1 z 5</span><span class="mini-signature">Michelle Ziober</span></div>
+    </header>
+    <div class="content">
+      <div class="hero">
+        <h1>Przymierze terapeutyczne</h1>
+        <div class="subtitle">Zasady współpracy</div>
+        <div class="signature">Michelle Ziober</div>
+        <svg class="title-wave" viewBox="0 0 120 18" aria-hidden="true"><path d="M4 10 C 18 2, 30 2, 44 10 S 72 18, 88 10 S 106 2, 116 9" fill="none" stroke="#A75E48" stroke-width="3" stroke-linecap="round" opacity=".8"/></svg>
+      </div>
+      <figure class="asset-frame hero-art" data-placeholder="miejsce na /assets/illustration-intro.svg"><img src="/assets/illustration-intro.svg" alt="Subtelna ilustracja rozmowy terapeutycznej"></figure>
+      <div class="soft-panel intro-panel">
+        <p>Ten dokument opisuje ramy naszej współpracy podczas sesji stacjonarnych i online. Jego celem nie jest tworzenie dystansu ani sztywnej formalności, lecz budowanie jasności, bezpieczeństwa, zaufania i wzajemnego szacunku.</p>
+        <p>Terapia jest procesem opartym na współpracy dwóch stron: osoby korzystającej z terapii oraz psychoterapeutki Michelle Ziober. Jej celem jest wspieranie dobrostanu psychicznego, lepsze rozumienie siebie, rozwijanie umiejętności radzenia sobie z trudnościami oraz budowanie bardziej świadomego kontaktu z emocjami, ciałem, relacjami i własnymi potrzebami.</p>
+      </div>
+      <div class="intention-grid">
+        <div>
+          <div class="section-title"><span class="num">1.</span><h2>Wspólna intencja</h2></div>
+          <p>Celem terapii jest stworzenie bezpiecznej, poufnej i profesjonalnej przestrzeni do pracy nad ważnymi dla osoby w terapii tematami.</p>
+          <div class="closing-note"><p>Cele terapii są ustalane wspólnie i mogą być doprecyzowywane w trakcie procesu.</p><p>Terapia nie polega na ocenianiu osoby ani narzucaniu jej gotowych rozwiązań. Jest wspólnym procesem poszukiwania, rozumienia i stopniowego wprowadzania zmian.</p></div>
+        </div>
+        <div class="list-card">
+          <p class="kicker">Wspólnie możemy pracować między innymi nad:</p>
+          <ul>
+            <li>lepszym rozumieniem siebie i swoich reakcji,</li><li>regulacją emocji i napięcia,</li><li>rozpoznawaniem powtarzających się schematów,</li><li>budowaniem granic,</li><li>wzmacnianiem sprawczości,</li><li>poprawą jakości relacji,</li><li>rozwijaniem większej uważności na ciało, emocje i potrzeby,</li><li>wspieraniem procesu zmiany w codziennym życiu,</li><li>innymi tematami ważnymi dla osoby w terapii.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="corner-circles"><span class="c1"></span><span class="c2"></span><span class="c3"></span></div>
+    <footer class="page-footer"><div class="footer-number">01</div><svg class="wave" viewBox="0 0 80 14"><path d="M3 7 C 13 1, 21 1, 31 7 S 51 13, 61 7 S 72 1, 77 6"/></svg></footer>
+  </section>
+
+  <section class="page page-2">
+    <header class="page-header"><div class="logo-wrap"><img src="/assets/logo.svg" alt="Stacja Terapia — Gabinet Psychoterapii"><div class="logo-fallback"><strong>Stacja<br>Terapia</strong><span>Gabinet Psychoterapii</span></div></div><div class="header-meta">Zasady współpracy | <span class="page-count">Strona 2 z 5</span><span class="mini-signature">Michelle Ziober</span></div></header>
+    <div class="content">
+      <div class="soft-panel main-panel">
+        <div>
+          <div class="section-title"><span class="num">2.</span><h2>Podejście, metody i sposób pracy</h2></div>
+          <p>Terapeutka pracuje zgodnie ze swoimi kwalifikacjami, doświadczeniem zawodowym, zasadami etyki oraz aktualną wiedzą psychologiczną i psychoterapeutyczną.</p>
+          <p>W pracy terapeutycznej mogą być wykorzystywane elementy różnych podejść i metod, zgodnie z kompetencjami i doświadczeniem terapeutki oraz potrzebami osoby w terapii.</p>
+          <p>W szczególności praca może obejmować:</p>
+          <ul>
+            <li>rozmowę terapeutyczną,</li><li>uważne przyglądanie się aktualnym trudnościom,</li><li>rozpoznawanie schematów relacyjnych i emocjonalnych,</li><li>pracę z emocjami,</li><li>pracę z relacją terapeutyczną,</li><li>elementy psychoedukacji,</li><li>wspólne szukanie bardziej wspierających sposobów działania.</li>
+          </ul>
+        </div>
+        <figure class="asset-frame session-art" data-placeholder="miejsce na /assets/illustration-session.svg"><img src="/assets/illustration-session.svg" alt="Ilustracja rozmowy w gabinecie"></figure>
+      </div>
+      <div class="soft-panel service-block">
+        <div class="section-title"><span class="num">3.</span><h2>Organizacja sesji</h2></div>
+        <p>Sesje odbywają się w ustalonym wcześniej terminie. Sesje rozpoczynają się i kończą o ustalonej godzinie.</p>
+        <div class="service-details">
+          <div class="detail"><span>Czas trwania</span><strong class="emphasis">50 minut</strong></div>
+          <div class="detail"><span>Koszt sesji</span><strong class="emphasis">200 zł</strong></div>
+          <div class="detail"><span>Płatność</span><strong class="emphasis">gotówka lub BLIK</strong></div>
+        </div>
+        <p>Potwierdzenie płatności, paragon lub faktura są dostępne zgodnie z ustaleniami oraz obowiązującymi przepisami.</p>
+      </div>
+    </div>
+    <div class="corner-circles"><span class="c1"></span><span class="c2"></span><span class="c3"></span></div><footer class="page-footer"><div class="footer-number">02</div><svg class="wave" viewBox="0 0 80 14"><path d="M3 7 C 13 1, 21 1, 31 7 S 51 13, 61 7 S 72 1, 77 6"/></svg></footer>
+  </section>
+
+  <section class="page page-3">
+    <header class="page-header"><div class="logo-wrap"><img src="/assets/logo.svg" alt="Stacja Terapia — Gabinet Psychoterapii"><div class="logo-fallback"><strong>Stacja<br>Terapia</strong><span>Gabinet Psychoterapii</span></div></div><div class="header-meta">Zasady współpracy | <span class="page-count">Strona 3 z 5</span><span class="mini-signature">Michelle Ziober</span></div></header>
+    <div class="content micro-copy">
+      <div class="p3-top">
+        <div>
+          <div class="section-title small"><span class="num">4.</span><h2>Opłaty i zmiana wysokości wynagrodzenia</h2></div>
+          <p>Opłata za sesję jest ustalana przed rozpoczęciem współpracy. Terapeutka ma prawo do zmiany wysokości opłaty za sesję, jeśli wynika to z istotnych okoliczności, takich jak wzrost kosztów prowadzenia działalności, podnoszenie kwalifikacji zawodowych lub inne ważne zmiany wpływające na koszt świadczonych usług.</p>
+          <p>O planowanej zmianie stawki osoba w terapii zostanie poinformowana z co najmniej miesięcznym wyprzedzeniem. Zmiana stawki powinna zostać omówiona w sposób jasny i transparentny. Osoba w terapii ma prawo zdecydować, czy akceptuje nowe warunki finansowe i chce kontynuować współpracę.</p>
+        </div>
+        <figure class="asset-frame station-art" data-placeholder="miejsce na /assets/illustration-station.svg"><img src="/assets/illustration-station.svg" alt="Ilustracja stacji terapeutycznej"></figure>
+      </div>
+      <div class="p3-mid">
+        <div class="soft-panel">
+          <div class="medallion">48<small>godzin</small></div>
+          <div class="section-title small"><span class="num">5.</span><h2>Odwoływanie i zmiana terminów</h2></div>
+          <p>Sesję można odwołać lub przełożyć najpóźniej 48 godzin przed umówionym terminem. W przypadku odwołania sesji później niż 48 godzin przed jej rozpoczęciem lub niepojawienia się na sesji, sesja może być płatna w pełnej wysokości.</p>
+          <p>Zasada ta nie ma charakteru kary. Służy ochronie stałości procesu oraz organizacji pracy gabinetu. W sytuacjach losowych, nagłych lub zdrowotnych możliwe jest indywidualne omówienie sprawy.</p>
+          <p>Odwołanie sesji może nastąpić za pomocą ustalonej formy kontaktu, np. SMS, wiadomości tekstowej lub innego wcześniej zaakceptowanego kanału. Jeśli terapeutka nie odpowie na wiadomość natychmiast, odwołanie uznaje się za zgłoszone w momencie wysłania wiadomości, o ile zostało wysłane przez uzgodniony kanał kontaktu.</p>
+        </div>
+        <div class="soft-panel">
+          <div class="section-title small"><span class="num">6.</span><h2>Spóźnienia</h2></div>
+          <p>Jeśli osoba w terapii spóźni się na sesję, spotkanie kończy się o ustalonej wcześniej godzinie, a czas sesji zostaje skrócony o czas spóźnienia.</p>
+          <p>Jeśli terapeutka spóźni się na sesję, zobowiązuje się do przedłużenia spotkania o czas swojego spóźnienia albo do ustalenia innej formy rekompensaty uzgodnionej z osobą w terapii.</p>
+        </div>
+      </div>
+      <div class="outlined-panel process-strip">
+        <div class="label"><span style="color:var(--terracotta)">7.</span> Nieobecność terapeutki</div>
+        <p>Jeśli terapeutka odwołuje sesję z własnej strony, osoba w terapii nie ponosi kosztu odwołanego spotkania.</p>
+        <p>Strony ustalają nowy termin, a przy nagłych zmianach terapeutka proponuje możliwie najbliższy termin zastępczy.</p>
+        <p>W przypadku dłuższej nieobecności informuje możliwie najwcześniej oraz, jeśli zasadne, wskazuje wsparcie zastępcze.</p>
+      </div>
+      <div class="soft-panel confidentiality">
+        <div class="section-title small"><span class="num">8.</span><h2>Poufność i kontakt poza gabinetem</h2></div>
+        <div class="columns">
+          <p>Wszystkie treści omawiane podczas terapii objęte są tajemnicą zawodową, z wyjątkiem sytuacji przewidzianych przez obowiązujące przepisy prawa. Poufność jest jednym z fundamentów procesu terapeutycznego.</p>
+          <p>Istnieją jednak sytuacje wyjątkowe, w których terapeutka może być zobowiązana do podjęcia działań ochronnych, zwłaszcza gdy:</p>
+          <ul><li>istnieje bezpośrednie zagrożenie życia lub zdrowia osoby w terapii,</li><li>istnieje bezpośrednie zagrożenie życia lub zdrowia innej osoby,</li><li>istnieje podejrzenie poważnego zagrożenia wobec dziecka lub osoby zależnej,</li><li>wymagają tego przepisy prawa.</li></ul>
+          <p>Jeśli jest to możliwe i bezpieczne, takie sytuacje są omawiane z osobą w terapii. W trosce o prywatność osoby w terapii terapeutka nie inicjuje kontaktu w przestrzeni publicznej, jeśli spotka osobę w terapii poza gabinetem. Decyzja o przywitaniu się lub nawiązaniu kontaktu w takiej sytuacji należy do osoby w terapii.</p>
+        </div>
+      </div>
+    </div>
+    <div class="corner-circles"><span class="c1"></span><span class="c2"></span><span class="c3"></span></div><footer class="page-footer"><div class="footer-number">03</div><svg class="wave" viewBox="0 0 80 14"><path d="M3 7 C 13 1, 21 1, 31 7 S 51 13, 61 7 S 72 1, 77 6"/></svg></footer>
+  </section>
+
+  <section class="page page-4">
+    <header class="page-header"><div class="logo-wrap"><img src="/assets/logo.svg" alt="Stacja Terapia — Gabinet Psychoterapii"><div class="logo-fallback"><strong>Stacja<br>Terapia</strong><span>Gabinet Psychoterapii</span></div></div><div class="header-meta">Zasady współpracy | <span class="page-count">Strona 4 z 5</span><span class="mini-signature">Michelle Ziober</span></div></header>
+    <div class="content micro-copy">
+      <div class="p4-grid-top">
+        <div class="soft-panel">
+          <div class="section-title small"><span class="num">9.</span><h2>Odpowiedzialność terapeutki</h2></div>
+          <p>Terapeutka zobowiązuje się do:</p>
+          <ul><li>prowadzenia terapii zgodnie z posiadanymi kwalifikacjami, wiedzą, doświadczeniem i zasadami etyki zawodowej,</li><li>informowania o istotnych kwestiach dotyczących procesu terapeutycznego,</li><li>tworzenia bezpiecznej i wspierającej przestrzeni do pracy,</li><li>zachowania poufności,</li><li>punktualnego rozpoczynania i kończenia sesji,</li><li>dbania o profesjonalne granice relacji terapeutycznej,</li><li>korzystania z superwizji lub innych form rozwoju zawodowego, jeśli jest to potrzebne dla jakości pracy,</li><li>reagowania na trudne momenty w relacji terapeutycznej z uważnością i gotowością do rozmowy.</li></ul>
+          <p>Terapeutka nie narzuca osobie w terapii diagnozy ani interpretacji bez omówienia ich znaczenia i wpływu na proces.</p>
+        </div>
+        <div class="outlined-panel chair-note">
+          <figure class="asset-frame mini-art" data-placeholder="/assets/illustration-session.svg"><img src="/assets/illustration-session.svg" alt="Dwa fotele w gabinecie"></figure>
+          <p class="kicker">Ramy procesu</p><p>Stałość, poufność i granice tworzą spokojną przestrzeń, w której możliwa jest uważna rozmowa o tym, co ważne.</p>
+        </div>
+      </div>
+      <div class="soft-panel wide-responsibility">
+        <div>
+          <div class="section-title small"><span class="num">10.</span><h2>Odpowiedzialność osoby w terapii</h2></div>
+          <p>Osoba w terapii zobowiązuje się do:</p>
+          <ul><li>uczestnictwa w sesjach zgodnie z ustalonym rytmem spotkań,</li><li>terminowego regulowania opłat,</li><li>możliwie szczerego i otwartego udziału w procesie terapeutycznym,</li><li>informowania o ważnych zmianach mających wpływ na przebieg terapii,</li><li>podejmowania odpowiedzialności za decyzje i działania podejmowane poza gabinetem oraz w trakcie procesu terapeutycznego,</li><li>zgłaszania wątpliwości, pytań lub trudności związanych z terapią.</li></ul>
+        </div>
+        <div class="callout"><p>Chodzi o gotowość do przyglądania się sobie, swojemu sposobowi przeżywania, swoim reakcjom i swoim decyzjom.</p><p>Osoba w terapii ma prawo nie rozumieć, mieć opór, mieć wątpliwości i potrzebować wyjaśnień.</p></div>
+      </div>
+      <div class="soft-panel cooperation">
+        <div class="section-title small"><span class="num">11.</span><h2>Współpraca terapeutyczna</h2></div>
+        <p>Terapia jest wspólnym procesem, za którego przebieg odpowiedzialność ponoszą obie strony. Terapeutka wnosi wiedzę, doświadczenie, profesjonalne wsparcie oraz odpowiedzialność za ramy procesu. Osoba w terapii wnosi swoją obecność, doświadczenie, zaangażowanie, gotowość do refleksji oraz pracę nad zmianą między sesjami.</p>
+        <p>Efekty terapii zależą od wielu czynników i nie mogą być zagwarantowane przez żadną ze stron. Współpraca terapeutyczna może obejmować także rozmowę o tym, co w procesie działa, co nie działa, co budzi opór, co wzmacnia zaufanie, a co je osłabia.</p>
+      </div>
+      <div class="two-col">
+        <div class="outlined-panel"><div class="section-title small"><span class="num">12.</span><h2>Trudne momenty w relacji terapeutycznej</h2></div><p>W terapii mogą pojawiać się momenty napięcia, nieporozumienia, rozczarowania, wycofania, złości, oporu lub poczucia niezrozumienia. Nie muszą one oznaczać porażki procesu.</p><p>Mogą być ważnym materiałem do pracy, jeśli zostaną nazwane, zasygnalizowane i omówione w bezpieczny sposób. W takich sytuacjach możliwa jest rozmowa o tym, co wydarza się w relacji terapeutycznej, bez założenia winy którejkolwiek ze stron.</p></div>
+        <div class="soft-panel contact-panel"><div><div class="section-title small"><span class="num">13.</span><h2>Kontakt między sesjami i sytuacje kryzysowe</h2></div><p>Kontakt pomiędzy sesjami służy przede wszystkim sprawom organizacyjnym, takim jak umawianie, odwoływanie lub zmiana terminów spotkań.</p><p>Terapeutka nie zapewnia stałej dostępności pomiędzy sesjami. Psychoterapia prowadzona w ramach niniejszej współpracy nie stanowi wsparcia kryzysowego ani interwencji w sytuacjach nagłego zagrożenia zdrowia lub życia.</p><p>W sytuacjach kryzysowych osoba w terapii powinna skorzystać z odpowiednich służb pomocowych, numerów alarmowych, pogotowia ratunkowego, oddziału psychiatrycznego lub centrum interwencji kryzysowej.</p></div><div class="phone-pill">+48 695 926 618</div></div>
+      </div>
+    </div>
+    <div class="corner-circles"><span class="c1"></span><span class="c2"></span><span class="c3"></span></div><footer class="page-footer"><div class="footer-number">04</div><svg class="wave" viewBox="0 0 80 14"><path d="M3 7 C 13 1, 21 1, 31 7 S 51 13, 61 7 S 72 1, 77 6"/></svg></footer>
+  </section>
+
+  <section class="page page-5">
+    <header class="page-header"><div class="logo-wrap"><img src="/assets/logo.svg" alt="Stacja Terapia — Gabinet Psychoterapii"><div class="logo-fallback"><strong>Stacja<br>Terapia</strong><span>Gabinet Psychoterapii</span></div></div><div class="header-meta">Zasady współpracy | <span class="page-count">Strona 5 z 5</span><span class="mini-signature">Michelle Ziober</span></div></header>
+    <div class="content micro-copy">
+      <div class="p5-top">
+        <div class="soft-panel"><div class="section-title small"><span class="num">14.</span><h2>Regularność spotkań</h2></div><p>Dla zachowania ciągłości procesu terapeutycznego zalecane jest regularne uczestnictwo w sesjach.</p><p>Powtarzające się nieobecności, częste odwoływanie spotkań lub trzy kolejne nieobecności mogą skutkować utratą stałego terminu terapii i koniecznością ponownego ustalenia warunków współpracy.</p><p>Taka decyzja powinna zostać omówiona w sposób jasny i możliwie uprzedzający.</p></div>
+        <div class="soft-panel"><div class="section-title small"><span class="num">15.</span><h2>Zakończenie terapii</h2></div><p>Zakończenie terapii może nastąpić po osiągnięciu ustalonych celów terapeutycznych, na wniosek osoby w terapii albo z ważnych powodów po stronie terapeutki. Osoba w terapii ma prawo zakończyć terapię w dowolnym momencie.</p><p>Jeśli jest to możliwe, zaleca się omówienie decyzji o zakończeniu podczas jednej lub kilku sesji kończących, aby świadomie domknąć proces, omówić dotychczasową współpracę i ewentualne dalsze rekomendacje. Sesja kończąca jest rekomendowana, ale nie powinna być przedstawiana jako przymus.</p><p>W wyjątkowych sytuacjach strony mogą wspólnie ustalić inną formę domknięcia procesu. Terapeutka może zakończyć współpracę wyłącznie z ważnych powodów zawodowych, etycznych lub organizacyjnych, informując o tym osobę w terapii z odpowiednim wyprzedzeniem oraz, jeśli jest to zasadne, wskazując możliwe formy dalszego wsparcia.</p><p>Zakończenie terapii nie musi oznaczać porażki. Może być naturalnym etapem procesu, zmianą potrzeb lub decyzją o wyborze innej formy wsparcia.</p></div>
+      </div>
+      <div class="p5-mid"><div class="soft-panel"><div class="section-title small"><span class="num">16.</span><h2>Potwierdzenie zapoznania się z zasadami</h2></div><p>Podpis nie oznacza bezterminowego zobowiązania do pozostawania w terapii.</p><p>Podpis oznacza potwierdzenie zapoznania się z zasadami współpracy i akceptację aktualnych warunków na moment rozpoczęcia lub kontynuowania procesu.</p><p>W razie potrzeby zasady mogą zostać omówione, doprecyzowane lub zaktualizowane.</p></div><div class="outlined-panel" style="padding:5mm;"><p class="kicker">Domknięcie</p><p>Podpis jest zaproszeniem do jasności i wspólnej odpowiedzialności za ramy procesu, nie zobowiązaniem bez końca.</p></div></div>
+    </div>
+    <div class="ticket">
+      <div class="ticket-inner">
+        <div class="ticket-main">
+          <h2>Bilet dla Ciebie</h2><div class="route">Kierunek: zmiana</div>
+          <div class="ticket-signature">Michelle Ziober</div>
+          <p class="warm">Dobrze, że jesteś.<br>Twoje tempo. Twoja droga. Twoja zmiana.</p>
+          <div class="ticket-fields">
+            <div>Data: ........................................................</div>
+            <div>Podpis osoby w terapii: ........................................................</div>
+            <div>Terapeutka: Michelle Ziober</div>
+            <div>Podpis: ........................................................</div>
+            <div>Ważny od: ........................................................</div>
+          </div>
+        </div>
+        <div class="ticket-side">
+          <div class="stamp-placeholder"><img src="/assets/stamp.svg" alt="Stempel Stacja Terapia"><span>Stacja Terapia</span><span>Gabinet Psychoterapii</span></div>
+          <div class="track-mark" aria-hidden="true"></div>
+          <div class="capsule">do zachowania</div>
+        </div>
+      </div>
+    </div>
+    <div class="corner-circles"><span class="c1"></span><span class="c2"></span><span class="c3"></span></div><footer class="page-footer"><div class="footer-number">05</div><svg class="wave" viewBox="0 0 80 14"><path d="M3 7 C 13 1, 21 1, 31 7 S 51 13, 61 7 S 72 1, 77 6"/></svg></footer>
+  </section>
+</body>
+</html>
